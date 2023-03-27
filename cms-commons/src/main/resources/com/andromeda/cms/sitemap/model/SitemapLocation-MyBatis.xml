@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright (C) 2020 by Andromeda. All Rights Reserved. -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.andromeda.cms.sitemap.model.SitemapLocation">
+	<resultMap id="SitemapLocationResultMap"
+		type="com.andromeda.cms.sitemap.model.SitemapLocation">
+		<result property="id" column="id" />
+		<result property="type" column="type" />
+		<result property="url" column="url" />
+	</resultMap>
+	
+	<insert id="Add" parameterType="map">
+		INSERT INTO cms_proxy.sitemap_locations ( url, type)
+		VALUES
+		(
+		#{p.url},
+		#{p.type}
+		)
+		ON CONFLICT (url) DO NOTHING
+	</insert>
+	
+	<select id="GetAll" resultMap="SitemapLocationResultMap">
+		SELECT * FROM cms_proxy.sitemap_locations ORDER BY url DESC
+	</select>
+	
+	<select id="GetByType" resultMap="SitemapLocationResultMap">
+		SELECT * FROM cms_proxy.sitemap_locations WHERE type=#{type} ORDER BY url DESC
+	</select>
+
+	<select id="GetById" resultMap="SitemapLocationResultMap" parameterType="map">
+		SELECT * FROM cms_proxy.sitemap_locations WHERE id=#{id}
+	</select>
+	
+	
+</mapper>

@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright (C) 2020 by Andromeda. All Rights Reserved. -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.andromeda.cms.model.CJLiveBlog">
+	<resultMap id="CJLiveBlogResultMap"
+		type="com.andromeda.cms.model.CJLiveBlog">
+		<result property="id" column="id" />
+		<result property="abnStoryId" column="abnStoryId" />
+		<result property="author" column="author" />
+		<result property="publishedAt" column="publishedAt" />
+		<result property="publishedAtSm" column="publishedAtSm" />
+		<result property="publishedYear" column="publishedYear" />
+		<result property="createdAt" column="createdAt" />
+		<result property="updatedAt" column="updatedAt" />
+		<result property="updatedAtSm" column="updatedAtSm" />
+		<result property="headline" column="headline" />
+		<result property="shortHeadline" column="shortHeadline" />
+		<result property="articleText" column="articleText" />
+		<result property="englishTitle" column="englishTitle" />
+		<result property="summary" column="summary" />
+		<result property="imageUrl" column="imageUrl" />
+		<result property="imageMediumUrl" column="imageMediumUrl" />
+		<result property="imageSmallUrl" column="imageSmallUrl" />
+		<result property="imageThumbUrl" column="imageThumbUrl" />
+		<result property="imageWidth" column="imageWidth" />
+		<result property="imageHeight" column="imageHeight" />
+		<result property="imageCaption" column="imageCaption" />
+		<result property="primaryCategoryId" column="primaryCategoryId" />
+		<result property="primaryCategoryName" column="primaryCategoryName" />
+		<result property="primaryCategoryTeluguLabel" column="primaryCategoryTeluguLabel" />
+		<result property="primaryCategorySeoSlug" column="primaryCategorySeoSlug" />
+		<result property="primaryCategoryUrl" column="primaryCategoryUrl" />
+		<result property="primarySubCategoryId" column="primarySubCategoryId" />
+		<result property="primarySubCategoryName" column="primarySubCategoryName" />
+		<result property="primarySubCategoryTeluguLabel" column="primarySubCategoryTeluguLabel" />
+		<result property="primarySubCategorySeoSlug" column="primarySubCategorySeoSlug" />
+		<result property="primarySubCategoryUrl" column="primarySubCategoryUrl" />
+		<result property="seoSlug" column="seoSlug" />
+		<result property="newsKeywords" column="newsKeywords" />
+		<result property="metaTitle" column="metaTitle" />
+		<result property="tags" column="tags" />
+		<result property="tagUrls" column="tagUrls" />
+		<result property="url" column="url" />
+		<result property="ampUrl" column="ampUrl" />
+		<result property="relatedArticles" column="relatedArticles" />
+		<result property="photos" column="photos" />
+		<result property="videos" column="videos" />
+		<result property="prioritiseInLatestNews" column="prioritiseInLatestNews" />
+		<result property="prioritiseInPrimarySection" column="prioritiseInPrimarySection" />
+		<result property="displayModifiedDate" column="displayModifiedDate" />
+		<result property="published" column="published" />
+		<result property="source" column="source" />
+		<result property="hideAuthorName" column="hideAuthorName" />
+		<result property="locale" column="locale" />
+	</resultMap>
+	
+	<insert id="Add" parameterType="map">
+		INSERT INTO ${tableName} 
+		(
+			id,
+			abnStoryId, 
+			author,
+			publishedYear, 
+			publishedAt,
+			publishedAtSm,
+			createdAt,
+			updatedAt, 
+			updatedAtSm, 
+			headline, 
+			shortHeadline, 
+			articleText, 
+			englishTitle, 
+			summary,
+			imageUrl,
+			imageMediumUrl, 
+			imageSmallUrl, 
+			imageThumbUrl, 
+			imageCaption, 
+			imageWidth,
+			imageHeight,
+			primaryCategoryId,
+			primaryCategoryName, 
+			primaryCategoryTeluguLabel,
+			primaryCategorySeoSlug,
+			primaryCategoryUrl,
+			primarySubCategoryId,
+			primarySubCategoryName,
+			primarySubCategoryTeluguLabel,
+			primarySubCategorySeoSlug,
+			primarySubCategoryUrl,
+			seoSlug,
+			newsKeywords,
+			metaTitle,
+			tags,
+			tagUrls,
+			url,
+			ampUrl,
+			relatedArticles,
+			contentType,
+			photos,
+			videos,
+			prioritiseInLatestNews,
+			prioritiseInPrimarySection,
+			displayModifiedDate,
+			published,
+			source,
+			hideAuthorName,
+			locale
+		)
+		VALUES 
+		(
+			#{p.id},
+			#{p.abnStoryId}, 
+			#{p.author},
+			#{p.publishedYear},
+			#{p.publishedAt},
+			#{p.publishedAtSm},
+			#{p.createdAt},
+			#{p.updatedAt},
+			#{p.updatedAtSm}, 
+			#{p.headline}, 
+			#{p.shortHeadline}, 
+			#{p.articleText}, 
+			#{p.englishTitle}, 
+			#{p.summary},
+			#{p.imageUrl}, 
+			#{p.imageMediumUrl}, 
+			#{p.imageSmallUrl}, 
+			#{p.imageThumbUrl}, 
+			#{p.imageCaption}, 
+			#{p.imageWidth},
+			#{p.imageHeight},
+			#{p.primaryCategoryId},
+			#{p.primaryCategoryName}, 
+			#{p.primaryCategoryTeluguLabel},
+			#{p.primaryCategorySeoSlug},
+			#{p.primaryCategoryUrl},
+			#{p.primarySubCategoryId},
+			#{p.primarySubCategoryName},
+			#{p.primarySubCategoryTeluguLabel},
+			#{p.primarySubCategorySeoSlug},
+			#{p.primarySubCategoryUrl},
+			#{p.seoSlug},
+			#{p.newsKeywords},
+			#{p.metaTitle},
+			#{p.tags},
+			#{p.tagUrls},
+			#{p.url},
+			#{p.ampUrl},
+			#{p.relatedArticles},
+			#{p.contentType},
+			#{p.photos}::jsonb,
+			#{p.videos}::jsonb,
+			#{p.prioritiseInLatestNews},
+			#{p.prioritiseInPrimarySection},
+			#{p.displayModifiedDate},
+			#{p.published},
+			#{p.source},
+			#{p.hideAuthorName},
+			#{p.locale}
+		)
+	</insert>
+	
+	<update id="Update" parameterType="map">
+	UPDATE cms_proxy.cj_liveblogs
+	SET
+		abnStoryId = #{p.abnStoryId},
+		author = #{p.author},
+		publishedYear = #{p.publishedYear},
+		publishedAt = #{p.publishedAt},
+		publishedAtSm = #{p.publishedAtSm},		 
+		createdAt = #{p.createdAt},
+		updatedAt = #{p.updatedAt},
+		updatedAtSm = #{p.updatedAtSm},
+		headline = #{p.headline},  
+		shortHeadline = #{p.shortHeadline}, 
+		articleText = #{p.articleText},  
+		englishTitle = #{p.englishTitle}, 
+		summary = #{p.summary},
+		imageUrl = #{p.imageUrl},
+		imageMediumUrl = #{p.imageMediumUrl}, 
+		imageSmallUrl = #{p.imageSmallUrl}, 
+		imageThumbUrl = #{p.imageThumbUrl}, 
+		imageCaption = #{p.imageCaption}, 
+		imageWidth = #{p.imageWidth},
+		imageHeight = #{p.imageHeight},
+		primaryCategoryId = #{p.primaryCategoryId}, 
+		primaryCategoryName = #{p.primaryCategoryName},
+		primaryCategoryTeluguLabel = #{p.primaryCategoryTeluguLabel},
+		primaryCategorySeoSlug = #{p.primaryCategorySeoSlug},
+		primaryCategoryUrl = #{p.primaryCategoryUrl},
+		primarySubCategoryId = #{p.primarySubCategoryId},
+		primarySubCategoryName = #{p.primarySubCategoryName},
+		primarySubCategoryTeluguLabel = #{p.primarySubCategoryTeluguLabel},
+		primarySubCategorySeoSlug  = #{p.primarySubCategorySeoSlug},
+		primarySubCategoryUrl = #{p.primarySubCategoryUrl},
+		seoSlug = #{p.seoSlug},
+		newsKeywords = #{p.newsKeywords},
+		metaTitle = #{p.metaTitle},
+		tags =  #{p.tags},
+		tagUrls = #{p.tagUrls},
+		url = #{p.url},
+		ampUrl = #{p.ampUrl},
+		relatedArticles = #{p.relatedArticles},
+		contentType = #{p.contentType},
+		photos = #{p.photos}::jsonb,
+		videos = #{p.videos}::jsonb,
+		prioritiseInLatestNews = #{p.prioritiseInLatestNews},
+		prioritiseInPrimarySection = #{p.prioritiseInPrimarySection},
+		displayModifiedDate = #{p.displayModifiedDate},
+		published = #{p.published},
+		source = #{p.source},
+		hideAuthorName = #{p.hideAuthorName},
+		locale = #{p.locale}
+	WHERE id = #{p.id}
+	
+	</update>
+	
+	
+	
+
+	<select id="GetAll" resultMap="CJLiveBlogResultMap" parameterType="map">
+		SELECT * FROM cms_proxy.cj_liveblogs
+	</select>
+
+	<select id="GetBySubCategoryId" resultMap="CJLiveBlogResultMap" parameterType="map">
+		SELECT * FROM cms_proxy.cj_liveblogs WHERE primarysubcategoryid =#{subCategoryId} AND published = true
+	</select>
+	
+	<select id="GetLatestBySubCategoryIdWithoutPriority" resultMap="CJLiveBlogResultMap" parameterType="map">
+   		SELECT * FROM cms_proxy.cj_liveblogs WHERE primaryCategoryId =#{categoryId} 
+   		AND primarysubcategoryid =#{subCategoryId} AND published = true
+   		<if test = "contentType != null">
+      		AND contentType=#{contentType}
+   		</if>
+		ORDER BY updatedAt DESC
+		<if test = "limit != null">
+      		LIMIT #{limit}
+   		</if>
+	</select>
+	
+	<select id="GetLatestBySubCategoryIdOnCreated" resultMap="CJLiveBlogResultMap" parameterType="map">
+   		SELECT * FROM cms_proxy.cj_liveblogs WHERE primaryCategoryId =#{categoryId} 
+   		AND primarysubcategoryid =#{subCategoryId} AND published = true
+   		<if test = "contentType != null">
+      		AND contentType=#{contentType}
+   		</if>
+		ORDER BY createdAt DESC
+		<if test = "limit != null">
+      		LIMIT #{limit}
+   		</if>
+	</select>
+	
+	<select id="GetLatestBySubCategoryId" resultMap="CJLiveBlogResultMap" parameterType="map">
+   		SELECT * FROM cms_proxy.cj_liveblogs WHERE primaryCategoryId =#{categoryId} 
+   		AND primarysubcategoryid =#{subCategoryId} AND published = true
+   		<if test = "contentType != null">
+      		AND contentType=#{contentType}
+   		</if>
+		<if test = "latestInPriorityIds != null">
+				AND id NOT IN
+	      		<foreach item="id" collection="latestInPriorityIds" separator="," open="(" close=")">
+       				 #{id}
+    			</foreach>
+	   		</if>
+		ORDER BY updatedAt DESC
+		<if test = "limit != null">
+      		LIMIT #{limit}
+   		</if>
+	</select>
+	
+	<select id="GetLatestInPriorityBySubCategoryId" resultMap="CJLiveBlogResultMap" parameterType="map">
+		SELECT * FROM cms_proxy.cj_liveblogs WHERE  primaryCategoryId =#{categoryId}
+		AND primarysubcategoryid =#{subCategoryId} AND published = true 
+		AND prioritiseInPrimarySection = true 
+		<if test = "contentType != null">
+      		AND contentType=#{contentType}
+   		</if>
+		ORDER BY updatedAt DESC
+		<if test = "limit != null">
+      		LIMIT #{limit}
+   		</if>
+	</select>
+	
+	<select id="GetLatestInPriorityByCategoryId" resultMap="CJLiveBlogResultMap" parameterType="map">
+		SELECT * FROM cms_proxy.cj_liveblogs WHERE primarycategoryid =#{categoryId} AND published = true 
+		AND prioritiseInPrimarySection = true
+		ORDER BY updatedAt DESC
+		<if test = "limit != null">
+      		LIMIT #{limit}
+   		</if>
+	</select>
+	
+	<select id="GetLatestInPriorityByCategoryIdOnCreated" resultMap="CJLiveBlogResultMap" parameterType="map">
+		SELECT * FROM cms_proxy.cj_liveblogs WHERE primarycategoryid =#{categoryId} AND published = true 
+		AND prioritiseInPrimarySection = true
+		ORDER BY createdAt DESC
+		<if test = "limit != null">
+      		LIMIT #{limit}
+   		</if>
+	</select>
+	
+	<select id="GetByCategoryId" resultMap="CJLiveBlogResultMap" parameterType="map">
+		SELECT * FROM cms_proxy.cj_liveblogs WHERE primaryCategoryId =#{categoryId} AND published = true
+	</select>
+	
+	<select id="GetByAbnStoryId" resultMap="CJLiveBlogResultMap" parameterType="map">
+		SELECT * FROM cms_proxy.cj_liveblogs WHERE abnStoryId =#{abnStoryId} AND published = true
+	</select>
+	
+	<select id="GetLatestByCategoryId" resultMap="CJLiveBlogResultMap" parameterType="map">
+		SELECT * FROM cms_proxy.cj_liveblogs WHERE primaryCategoryId =#{categoryId} AND published = true
+		<if test = "latestInPriorityIds != null">
+				AND id NOT IN
+	      		<foreach item="id" collection="latestInPriorityIds" separator="," open="(" close=")">
+       				 #{id}
+    			</foreach>
+	   		</if>
+		ORDER BY updatedAt DESC
+		<if test = "limit != null">
+      		LIMIT #{limit}
+   		</if>
+	</select>
+	
+	
+	<select id="GetLatestByCategoryIdOnCreated" resultMap="CJLiveBlogResultMap" parameterType="map">
+		SELECT * FROM cms_proxy.cj_liveblogs WHERE primaryCategoryId =#{categoryId} AND published = true
+		<if test = "latestInPriorityIds != null">
+				AND id NOT IN
+	      		<foreach item="id" collection="latestInPriorityIds" separator="," open="(" close=")">
+       				 #{id}
+    			</foreach>
+	   		</if>
+		ORDER BY createdAt DESC
+		<if test = "limit != null">
+      		LIMIT #{limit}
+   		</if>
+	</select>
+	
+	<select id="GetLatestByCategoryIdWithoutPriority" resultMap="CJLiveBlogResultMap" parameterType="map">
+		SELECT * FROM cms_proxy.cj_liveblogs WHERE primaryCategoryId =#{categoryId} AND published = true
+		ORDER BY updatedAt DESC
+		<if test = "limit != null">
+      		LIMIT #{limit}
+   		</if>
+	</select>
+	
+	
+	<select id="GetLatestPriorityArticles" resultMap="CJLiveBlogResultMap" parameterType="map">
+			SELECT * FROM cms_proxy.cj_liveblogs 
+			WHERE published = true AND prioritiseInLatestNews = true
+			ORDER BY updatedAt DESC
+			<if test = "limit != null">
+	      		LIMIT #{limit}
+	   		</if>
+	</select>
+	
+	
+	<select id="GetLatestArticlesWithoutPriority" resultMap="CJLiveBlogResultMap" parameterType="map">
+			SELECT * FROM cms_proxy.cj_liveblogs 
+			WHERE published = true
+			<if test = "contentType != null">
+	      		AND contentType=#{contentType} 
+	   		</if> 
+			ORDER BY updatedAt DESC
+			<if test = "limit != null">
+	      		LIMIT #{limit}
+	   		</if>
+	</select>
+	
+	<select id="GetLatestArticles" resultMap="CJLiveBlogResultMap" parameterType="map">
+			SELECT * FROM cms_proxy.cj_liveblogs 
+			WHERE published = true
+			<if test = "contentType != null">
+	      		AND contentType=#{contentType} 
+	   		</if> 
+			<if test = "latestInPriorityIds != null">
+				AND id NOT IN
+	      		<foreach item="id" collection="latestInPriorityIds" separator="," open="(" close=")">
+       				 #{id}
+    			</foreach>
+	   		</if>
+			ORDER BY updatedAt DESC
+			<if test = "limit != null">
+	      		LIMIT #{limit}
+	   		</if>
+	</select>
+	
+	<select id="GetLatestArticlesOnCreated" resultMap="CJLiveBlogResultMap" parameterType="map">
+			SELECT * FROM cms_proxy.cj_liveblogs 
+			WHERE published = true
+			<if test = "contentType != null">
+	      		AND contentType=#{contentType} 
+	   		</if> 
+			ORDER BY createdAt DESC
+			<if test = "limit != null">
+	      		LIMIT #{limit}
+	   		</if>
+	</select>
+	
+	
+	<select id="GetLatestArticlesInPriority" resultMap="CJLiveBlogResultMap" parameterType="map">
+		SELECT * FROM cms_proxy.cj_liveblogs WHERE 
+		<if test = "contentType != null">
+      		contentType= #{contentType} AND
+   		</if>
+		published = true 
+		AND prioritiseInLatestNews = true
+		ORDER BY updatedAt DESC
+		<if test = "limit != null">
+      		LIMIT #{limit}
+   		</if>
+	</select>
+	
+	<select id="GetVideos" resultMap="CJLiveBlogResultMap" parameterType="map">
+		SELECT * from
+		(
+			(
+			SELECT * FROM cms_proxy.cj_liveblogs 
+			WHERE contentType='Video Gallery' AND published = true AND prioritiseInLatestNews = true
+			LIMIT 3
+			)
+			UNION
+			(
+			SELECT * FROM cms_proxy.cj_liveblogs 
+			WHERE contentType='Video Gallery' AND published = true 
+			<if test = "limit != null">
+	      		LIMIT #{limit}
+	   		</if>
+			)
+		)A
+		ORDER BY updatedAt DESC
+		
+	</select>
+	
+	
+	<select id="GetById" resultMap="CJLiveBlogResultMap" parameterType="map">
+		SELECT * FROM cms_proxy.cj_liveblogs WHERE id=#{id} AND published = true
+	</select>
+	
+	<select id="GetByIdWOPublished" resultMap="CJLiveBlogResultMap" parameterType="map">
+		SELECT * FROM cms_proxy.cj_liveblogs WHERE id=#{id}
+	</select>
+	
+	<select id="GetDistinctPublishDates" resultType="java.util.Date">
+		SELECT DISTINCT(DATE(publishedAt)) FROM cms_proxy.cj_liveblogs
+	</select>
+	
+	<select id="GetDistinctPublishYears" resultType="java.lang.Integer">
+		SELECT DISTINCT(EXTRACT(year FROM publishedAT)) FROM cms_proxy.cj_liveblogs
+	</select>
+
+	
+	<select id="GetMaxArticlePublishDate" resultType="java.util.Date">
+		SELECT MAX(DATE(publishedAt)) FROM cms_proxy.cj_liveblogs
+	</select>
+	
+	<select id="GetByPublishedDate" resultMap="CJLiveBlogResultMap" parameterType="map">
+		SELECT * FROM cms_proxy.cj_liveblogs WHERE DATE(publishedAt) = #{publishedAt} AND published = true
+	</select>
+	
+	<select id="GetByPublishedYear" resultMap="CJLiveBlogResultMap" parameterType="map">
+		SELECT * FROM cms_proxy.cj_liveblogs 
+		WHERE EXTRACT(YEAR FROM publishedAt) = #{publishedYear} AND 
+      		contentType= #{contentType} AND published = true
+	</select>
+	
+	<select id="DeleteById"  parameterType="map">
+		DELETE FROM cms_proxy.cj_liveblogs WHERE id = #{id}
+	</select>
+	
+	<select id="GetLiveBlogsWithTag" resultMap="CJLiveBlogResultMap" parameterType="map">
+		SELECT * FROM cms_proxy.cj_liveblogs 
+		WHERE ',' || tags || ',' SIMILAR TO #{tag} AND published = true
+		ORDER BY updatedAt DESC
+		<if test = "limit != null">
+	      		LIMIT #{limit}
+   		</if>
+	</select>
+	
+	<select id="GetByIds" resultMap="CJLiveBlogResultMap" parameterType="map">
+   		SELECT * FROM cms_proxy.cj_liveblogs WHERE published = true
+			<if test = "ids != null">
+				AND id IN
+	      		<foreach item="id" collection="ids" separator="," open="(" close=")">
+       				 #{id}
+    			</foreach>
+	   		</if>
+	</select>
+</mapper>

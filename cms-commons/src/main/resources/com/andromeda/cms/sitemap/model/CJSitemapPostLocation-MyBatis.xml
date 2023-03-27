@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright (C) 2020 by Andromeda. All Rights Reserved. -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.andromeda.cms.sitemap.model.CJSitemapPostLocation">
+	<resultMap id="CJSitemapPostLocationResultMap"
+		type="com.andromeda.cms.sitemap.model.CJSitemapPostLocation">
+		<result property="id" column="id" />
+		<result property="year" column="year" />
+		<result property="url" column="url" />
+	</resultMap>
+	
+	<insert id="Add" parameterType="map">
+		INSERT INTO cms_proxy.cj_sitemap_post_locations ( url, year)
+		VALUES
+		(
+		#{p.url},
+		#{p.year}
+		)
+		ON CONFLICT (url) DO NOTHING
+	</insert>
+	
+	<select id="GetAll" resultMap="CJSitemapPostLocationResultMap">
+		SELECT * FROM cms_proxy.cj_sitemap_post_locations ORDER BY url DESC
+	</select>
+	
+	<select id="GetByYear" resultMap="CJSitemapPostLocationResultMap">
+		SELECT * FROM cms_proxy.cj_sitemap_post_locations WHERE year=#{year} ORDER BY url DESC
+	</select>
+
+	<select id="GetById" resultMap="CJSitemapPostLocationResultMap" parameterType="map">
+		SELECT * FROM cms_proxy.cj_sitemap_post_locations WHERE id=#{id}
+	</select>
+	
+	
+</mapper>

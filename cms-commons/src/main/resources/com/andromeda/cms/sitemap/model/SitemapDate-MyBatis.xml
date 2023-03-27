@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright (C) 2020 by Andromeda. All Rights Reserved. -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.andromeda.cms.sitemap.model.SitemapDate">
+	<resultMap id="SitemapDateResultMap"
+	type="com.andromeda.cms.sitemap.model.SitemapDate">
+		<result property="date" column="date" />
+	</resultMap>
+	
+	<insert id="Add" parameterType="map">
+		INSERT INTO cms_proxy.sitemap_dates
+		(
+			date
+		) values 
+		(
+			#{p.date}
+		)
+		ON CONFLICT(date) DO NOTHING
+	</insert>
+	
+	<select id="GetAll" resultMap="SitemapDateResultMap">
+		SELECT * FROM cms_proxy.sitemap_dates
+	</select>
+	
+	<select id="GetLatestDate" resultType="java.util.Date" parameterType="map">
+		SELECT MAX(date) FROM cms_proxy.sitemap_dates
+	</select>
+	
+	<select id="GetByDate" resultMap="SitemapDateResultMap" parameterType="map">
+		SELECT * FROM cms_proxy.sitemap_dates WHERE date = #{date}
+	</select>
+	
+</mapper>

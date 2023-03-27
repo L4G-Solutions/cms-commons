@@ -1,0 +1,199 @@
+package com.andromeda.cms.defs;
+
+public class StrapiConstants {
+	
+	public static final String CHITRAJYOTHY_MEDIA_DOMAIN_NAME = "https://media.chitrajyothy.com/appimg/galleries/";
+	public static final String MEDIA_DOMAIN_NAME = "https://media.andhrajyothy.com/appimg/galleries/";
+	public static final String DOMAIN_NAME = "https://www.andhrajyothy.com";
+	public static final String M_DOMAIN_NAME = "https://www.andhrajyothy.com";
+	public static final String CHITRAJYOTHY_DOMAIN_NAME = "https://www.chitrajyothy.com";
+	public static final String CHITRAJYOTHY_M_DOMAIN_NAME = "https://www.chitrajyothy.com";
+	public static final String RESOURCE_DOMAIN_NAME = "https://www.andhrajyothy.com/assets";
+	public static final String RESOURCE_CHITRAJYOTHY_DOMAIN_NAME = "https://www.chitrajyothy.com/assets";
+
+	
+	public static enum STRAPI_WEBHOOK_MODEL
+	{
+		article,
+		photo_gallery,
+		video_gallery,
+		horoscope,
+		cartoon
+	};
+	
+	// Strapi Webhook Events
+	public static final String STRAPI_EVENT_PUBLISH = "entry.publish";
+	public static final String STRAPI_EVENT_UNPUBLISH = "entry.unpublish";
+	public static final String STRAPI_EVENT_DELETE = "entry.delete";
+	
+	// Strapi Model Objects
+	public static final String STRAPI_MODEL_CARTOON = "Cartoon";
+	public static final String STRAPI_MODEL_ARTICLE = "Article";
+	public static final String STRAPI_MODEL_MAINARTICLE = "MainArticle";
+	public static final String STRAPI_MODEL_PHOTOGALLERY = "Photogallery";
+	public static final String STRAPI_MODEL_HOROSCOPE = "Horoscope";
+	public static final String STRAPI_MODEL_HOMEPAGEAD = "homepage-ad";
+	
+	// Strapi Election  Vote Model Objects
+	public static final String STRAPI_MODEL_MEGHALAYA_ELECTION_VOTE = "meghalaya-election-2023";
+	public static final String STRAPI_MODEL_TRIPURA_ELECTION_VOTE = "tripura-election-2023";
+	public static final String STRAPI_MODEL_NAGALAND_ELECTION_VOTE = "nagaland-election-2023";
+	
+	public static final String STRAPI_MODEL_CJ_ARTICLE = "cj-articles-2023";
+	public static final String STRAPI_MODEL_CJ_PHOTOGALLERY = "cj-photogalleries-2023";
+	public static final String STRAPI_MODEL_CJ_LIVEBLOG = "cj-liveblog";
+	public static final String STRAPI_MODEL_RANKING_DASHBOARD = "ranking-dashboard";
+	
+	//Other Model Objects
+	public static final String MODEL_AV_CATEGORY_LANDING = "Category landing";
+	public static final String MODEL_AV_CATEGORY_LISTING = "Category listing";
+	public static final String MODEL_PHOTO_CATEGORY_LANDING = "Photo landing";
+	public static final String MODEL_PHOTO_CATEGORY_LISTING = "Photo listing";
+	public static final String MODEL_LATEST_ARTICLE_LISTING = "Latest Article Listing";
+	public static final String MODEL_HOME_PAGE= "Home page";
+			
+	//Strapi Category types
+	public static final String STRAPI_CATEGORY_PHOTOGALLERY = "Photogallery";
+	public static final String STRAPI_CATEGORY_VIDEOGALLERY = "Videos";
+	public static final String STRAPI_CATEGORY_CARTOON = "Cartoonarchive";
+	public static final String STRAPI_CATEGORY_HOROSCOPE="Astrology";
+	public static final String STRAPI_CATEGORY_OPEN_HEART = "Open Heart";
+	public static final String STRAPI_SUBCATEGORY_ABN_VIDEOS= "ABN Videos";
+
+	
+	public static final String STRAPI_CJ_CATEGORY_PHOTOGALLERY = "Photogallery";
+	public static final String STRAPI_CJ_CATEGORY_OPEN_HEART = "OHRK Film Interviews";
+	public static final String STRAPI_CJ_CATEGORY_OTT = "OTT";
+	public static final String STRAPI_CJ_SUBCATEGORY_TRAILERS = "Trailers and Teasers";
+
+			
+	public static final Integer FEED_LIMIT = 1000;
+	public static final Integer STRAPI_PAGINATION_LIMIT = 200;
+	public static final Integer LIMIT = 15;
+	public static final Long REDIS_DATA_LIMIT = (long) 100;
+	public static final Integer ABN_LISTING_PAGE_LIMIT = 10;
+	public static final Integer CHITRAJYOTHY_PHOTO_LISTING_PAGE_LIMIT = 18;
+	public static final Integer CHITRAJYOTHY_PHOTO_LISTING_TOTAL_LIMIT = 360;
+	public static final Integer CHITRAJYOTHY_LATEST_LISTING_PAGE_LIMIT = 18;
+	public static final Integer CHITRAJYOTHY_LATEST_LISTING_TOTAL_LIMIT = 360;
+	public static final Integer PRIORITY_LIMIT = 3;
+	public static final Integer HOROSCOPE_LATEST_LIMIT = 1;
+	
+	public static final Long REDIS_CARTOON_DATA_LIMIT = (long) 120;
+	public static final Integer CARTOON_DATA_LIMIT = 12;
+	public static final Integer RK_LIMIT = 18;
+
+	
+	public static final String STRAPI_BASE_URL = "https://cms.andhrajyothy.com/api" ;
+	//public static final String STRAPI_AUTH_URL = STRAPI_BASE_URL + "/auth/local" ; 
+	
+	//Article related Urls
+	public static final String STRAPI_ARTICLE_URL = STRAPI_BASE_URL + "/articles" ;
+	public static final String STRAPI_LATEST_ARTICLE_URL = STRAPI_ARTICLE_URL+ "?populate=%2A&sort[0]=publishDate";
+	public static final String STRAPI_PRIMARY_SUB_CATEGORY_RELATED_ARTICLE_URL = STRAPI_ARTICLE_URL+
+			"?primarySubCategory[id]=%s&populate=*&sort[0]=publishDate";
+	public static final String STRAPI_PRIMARY_CATEGORY_RELATED_ARTICLE_URL = STRAPI_ARTICLE_URL+
+			"?primaryCategory[id]=%s&populate=*&sort[0]=publishDate";
+	public static final String STRAPI_RELATED_ARTICLE_URL = STRAPI_ARTICLE_URL+ "%s?populate[0]=articleTextEditor&populate[1]=articleTextEditor.articles";
+	
+	
+	//Chitrajyothy Category related Urls
+	public static final String STRAPI_CJ_CATEGORY_URL = STRAPI_BASE_URL + "/cj-categories-2023s";
+	public static final String STRAPI_DETAILED_CJ_CATEGORY_URL = STRAPI_CJ_CATEGORY_URL + "?populate[0]=subCategories&sort[0]=id";
+	public static final String STRAPI_DETAILED_CJ_CATEGORY_WITH_METADESC_URL = STRAPI_CJ_CATEGORY_URL + "?populate[0]=subCategories&sort[0]=id";
+
+	public static final String STRAPI_CJ_CATEGORY_FIND_BY_ID_URL = STRAPI_CJ_CATEGORY_URL + "/%s";
+	public static final String STRAPI_CJ_CATEGORY_FILTER_URL = STRAPI_CJ_CATEGORY_URL + "?filters[%s][$eq]=%s&populate=subCategories";
+		
+	
+	//Category related Urls
+	public static final String STRAPI_TESTCATEGORY_URL = STRAPI_BASE_URL + "/test-categories";
+	public static final String STRAPI_CATEGORY_URL = STRAPI_BASE_URL + "/categories";
+	public static final String STRAPI_DETAILED_CATEGORY_URL = STRAPI_BASE_URL + "/categories?populate[0]=subCategories&sort[0]=id";
+	public static final String STRAPI_DETAILED_CATEGORY_WITH_METADESC_URL = STRAPI_BASE_URL + "/categories?populate[0]=subCategories&sort[0]=id";
+
+	public static final String STRAPI_CATEGORY_FIND_BY_ID_URL = STRAPI_CATEGORY_URL + "/%s";
+	public static final String STRAPI_CATEGORY_FILTER_URL = STRAPI_CATEGORY_URL + "?filters[%s][$eq]=%s&populate=subCategories";
+	public static final String STRAPI_CATEGORY_UPDATE_URL = STRAPI_CATEGORY_URL + "/%s";
+	
+	//Sub Category related Urls
+	public static final String STRAPI_SUBCATEGORY_BY_CATEGORY_URL  = STRAPI_BASE_URL + "/categories/%s?populate=subCategories";
+	public static final String STRAPI_DETAILED_SUBCATEGORY_URL = STRAPI_BASE_URL + "/sub-categories?populate[0]=category&pagination[start]=%d&pagination[limit]="+STRAPI_PAGINATION_LIMIT;
+	public static final String STRAPI_SUBCATEGORY_URL = STRAPI_BASE_URL + "/sub-categories";
+	public static final String STRAPI_TEST_TAG_URL = STRAPI_BASE_URL + "/test-tags";
+	public static final String STRAPI_SUBCATEGORY_FILTER_URL = STRAPI_SUBCATEGORY_URL + "?filters[%s][$eq]=%s";
+	public static final String STRAPI_SUBCATEGORY_UPDATE_URL = STRAPI_SUBCATEGORY_URL + "/%s";
+	public static final String STRAPI_SUBCATEGORY_BY_ID_URL = STRAPI_SUBCATEGORY_URL + "/%s?populate=*";
+	
+	public static final String STRAPI_CJ_SUBCATEGORY_URL = STRAPI_BASE_URL + "/cj-subcategories-2023s";
+	public static final String STRAPI_DETAILED_CJ_SUBCATEGORY_URL = STRAPI_CJ_SUBCATEGORY_URL + "?populate[0]=categories&pagination[start]=%d&pagination[limit]="+STRAPI_PAGINATION_LIMIT;
+	public static final String STRAPI_CJ_SUBCATEGORY_FILTER_URL = STRAPI_CJ_SUBCATEGORY_URL + "?filters[%s][$eq]=%s";
+	public static final String STRAPI_CJ_SUBCATEGORY_UPDATE_URL = STRAPI_CJ_SUBCATEGORY_URL + "/%s";
+	public static final String STRAPI_CJ_SUBCATEGORY_BY_ID_URL = STRAPI_CJ_SUBCATEGORY_URL + "/%s?populate=*";
+	
+	public static final String STRAPI_TAG_URL = STRAPI_BASE_URL + "/tags";
+	public static final String HOMEPAGE_TAG =  "Union Budget";
+	
+	//Feed related constants
+	public static final String FEEDS_FOLDER_S3 = "rss";
+	public static final String FEEDS_PAGE_FORMAT = "%s/feed.xml";
+	public static final String FEEDS_PAGE_FORMAT_L1 = "%s/%s/feed.xml";
+	public static final String FEEDS_PAGE_FORMAT_L2 = "%s/%s/%s/feed.xml";
+	
+	//Sitemap related Constants
+	public static final Integer SITEMAP_NEWS_INDEX_PAGE_LIMIT = 1000;
+	public static final String SITEMAP_TYPE_INDEX = "index";
+	public static final String SITEMAP_TYPE_PAGE= "page";
+	public static final String SITEMAP_FOLDER_S3 = "sitemaps";
+	public static final String ADS_FOLDER_S3 = "abnads";
+	
+	//S3 related constants
+	public static final String S3_BUCKET_NAME = "article.andhrajyothy.com";
+	public static final String CHITRAJYOTHY_S3_BUCKET_NAME = "article.chitrajyothy.com";
+	
+	public static final String S3_ARTICLE_PREFIX_WITH_SC = "%s/%s/%s/%s";
+	public static final String S3_ARTICLE_PREFIX_WITHOUT_SC = "%s/%s/%s";
+	public static final String S3_CATEGORY_LANDING_PREFIX = "%s";
+	
+	public static final String S3_CATEGORY_LISTING_WITH_SC = "%s/%s";
+	public static final String S3_CATEGORY_LISTING_WITHOUT_SC = "%s";
+	public static final String S3_CATEGORY_LISTING_WITHOUT_SC_PAGE = "%s/page/%s";
+	public static final String S3_CATEGORY_LISTING_WITH_SC_PAGE = "%s/%s/page/%s";
+	
+	public static final String S3_CATEGORY_LISTING_WITH_SC_INVALIDATION = "%s/%s";
+	public static final String S3_CATEGORY_LISTING_WITHOUT_SC_INVALIDATION = "%s";
+	public static final String S3_CATEGORY_LANDING_INVALIDATION = "%s";
+	
+	public static final String S3_CATEGORY_LANDING_PREFIX_CJ = "%s";
+	
+	public static final String S3_CATEGORY_LISTING_WITH_SC_CJ = "%s/%s";
+	public static final String S3_CATEGORY_LISTING_WITHOUT_SC_CJ = "%s";
+	public static final String S3_CATEGORY_LISTING_WITHOUT_SC_PAGE_CJ = "%s/page/%s";
+	public static final String S3_CATEGORY_LISTING_WITH_SC_PAGE_CJ = "%s/%s/page/%s";
+	//Strapi Content Types
+	public static final String CONTENT_TYPE_BULK_IMAGE_UPLOAD = "Bulk Image Upload";
+	public static final String CONTENT_TYPE_IMAGE_WITH_DESCRIPTION = "Image with Description";
+	public static final String CONTENT_TYPE_ARTICLE = "Article";
+	public static final String CONTENT_TYPE_VIDEO = "Video Gallery";
+	
+	public static final String CONTENT_TYPE_CHITRA_ARTICLE = "Chitrajyothy Article";
+	public static final String CONTENT_TYPE_CHITRA_VIDEO = "Chitrajyothy Video Gallery";
+	
+	
+	//Horoscope Types
+	public static final String HOROSCOPETYPE_DAILY = "Daily";
+	public static final String HOROSCOPETYPE_WEEKLY = "Weekly";
+	public static final String HOROSCOPETYPE_MONTHLY = "Monthly";
+	public static final String HOROSCOPETYPE_YEARLY_BY_BIRTHDATE = "Yearly_By_BirthDate";
+	public static final String HOROSCOPETYPE_YEARLY_BY_BIRTHSTAR = "Yearly_By_BirthStar";
+	public static final String HOROSCOPETYPE_PANCHANGAM = "Panchangam";
+	
+	//Ranking Dashboard Item Types
+	public static final String RANKING_ITEM_STORY_TYPE_ARTICLE = "Article / Video Gallery";
+	public static final String RANKING_ITEM_STORY_TYPE_PHOTO = "Photo Gallery";
+	public static final String RANKING_ITEM_WEBSITE_ABN = "Andhrajyothy";
+	public static final String RANKING_ITEM_WEBSITE_CJ = "Chitrajyothy";
+	
+	
+	
+}

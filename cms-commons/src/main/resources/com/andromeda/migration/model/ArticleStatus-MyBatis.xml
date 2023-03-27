@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright (C) 2020 by Andromeda. All Rights Reserved. -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.andromeda.migration.model.ArticleStatus">
+	<resultMap id="ArticleStatusResultMap"
+	type="com.andromeda.migration.model.ArticleStatus">
+		<result property="id" column="id" />
+		<result property="abnStoryId" column="abnStoryId" />
+		<result property="status" column="status" />
+	</resultMap>
+	
+	<insert id="Add" parameterType="map">
+		INSERT INTO migration.articles_status
+		(
+			id,
+			abnStoryId,
+			status
+		) values 
+		(
+			#{p.id},
+			#{p.abnStoryId},
+			#{p.status}
+		)
+	ON CONFLICT (id) 
+	DO UPDATE SET status = #{p.status}
+	</insert>
+	
+	<select id="GetAll" resultMap="ArticleStatusResultMap">
+		SELECT * FROM migration.articles_status
+	</select>
+	
+	<select id="GetById" resultMap="ArticleStatusResultMap" parameterType="map">
+		SELECT * FROM migration.articles_status WHERE id = #{id}
+	</select>
+	
+</mapper>
